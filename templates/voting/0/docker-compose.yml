@@ -10,7 +10,7 @@ voting-app:
   log_driver: ''
   tty: true
   log_opt: {}
-  image: cloudnautique/voting-app
+  image: docker/example-voting-app-voting-app
   links:
   - 'voting-app:'
   stdin_open: true
@@ -28,7 +28,7 @@ result-app:
   log_driver: ''
   tty: true
   log_opt: {}
-  image: cloudnautique/result-app
+  image: docker/example-voting-app-result-app
   links:
   - Postrges:db
   stdin_open: true
@@ -36,7 +36,7 @@ worker:
   log_driver: ''
   tty: true
   log_opt: {}
-  image: cloudnautique/worker
+  image: docker/example-voting-app-worker
   links:
   - redis:redis
   - Postrges:db
