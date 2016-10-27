@@ -2,6 +2,9 @@ redis:
   log_driver: ''
   labels:
     io.rancher.container.pull_image: always
+    env: staging
+    tier: backend
+    app: worker
   tty: true
   log_opt: {}
   image: redis
@@ -10,6 +13,9 @@ voting-app:
   log_driver: ''
   labels:
     io.rancher.container.pull_image: always
+    env: staging
+    tier: frontend
+    app: web
   tty: true
   log_opt: {}
   image: janeczku/voting-app
@@ -30,6 +36,10 @@ result-app:
   ports:
   - 5001:80/tcp
   log_driver: ''
+  labels:
+    env: staging
+    tier: frontend
+    app: web
   tty: true
   log_opt: {}
   image: cloudnautique/result-app
@@ -38,6 +48,10 @@ result-app:
   stdin_open: true
 worker:
   log_driver: ''
+  labels:
+    env: staging
+    tier: backend
+    app: worker
   tty: true
   log_opt: {}
   image: cloudnautique/worker
@@ -49,6 +63,9 @@ Postrges:
   log_driver: ''
   labels:
     io.rancher.container.pull_image: always
+    env: staging
+    tier: backend
+    app: database
   tty: true
   log_opt: {}
   image: postgres:9.4
