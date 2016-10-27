@@ -13,6 +13,8 @@ voting-app:
   tty: true
   log_opt: {}
   image: janeczku/voting-app
+  environment:
+    - STATSD_HOST=datadog-agent.datadog
   links:
   - 'voting-app:'
   stdin_open: true
