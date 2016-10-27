@@ -8,9 +8,11 @@ redis:
   stdin_open: true
 voting-app:
   log_driver: ''
+  labels:
+    io.rancher.container.pull_image: always
   tty: true
   log_opt: {}
-  image: cloudnautique/voting-app
+  image: janeczku/voting-app
   links:
   - 'voting-app:'
   stdin_open: true
